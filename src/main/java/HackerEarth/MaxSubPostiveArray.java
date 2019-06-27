@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,8 +13,8 @@ public class MaxSubPostiveArray {
 	// Getting max subset of integer with positive value
 	public static ArrayList<Integer> maxset(ArrayList<Integer> A) {
 		ArrayList<Integer> resList;
-		Map<Integer, Integer> lastUpdated = new HashMap<>();
-		Map<Integer, Integer> updated = new HashMap<>();
+		LinkedHashMap<Integer, Integer> lastUpdated = new LinkedHashMap<>();
+		LinkedHashMap<Integer, Integer> updated = new LinkedHashMap<>();
 		for (int i = 0; i < A.size(); i++) {
 
 			if (A.get(i) < 0) {
@@ -33,11 +34,9 @@ public class MaxSubPostiveArray {
 
 	///Converting Map to ArrayList
 	public static ArrayList<Integer> mapToArrayLis(Map<Integer, Integer> resultMap) {
-		List<Integer> sortedList=new ArrayList<Integer>(resultMap.keySet());
 		
-		Collections.sort(sortedList);
 		ArrayList<Integer> resList = new ArrayList<>();
-		for (int key : sortedList) {
+		for (int key : resultMap.keySet()) {
 			resList.add(resultMap.get(key));
 		}
 
@@ -46,7 +45,7 @@ public class MaxSubPostiveArray {
 	}
 
 	// Checking for bigger value
-	public static Map<Integer, Integer> checkBigger(Map<Integer, Integer> lastUpdated, Map<Integer, Integer> updated) {
+	public static LinkedHashMap<Integer, Integer> checkBigger(LinkedHashMap<Integer, Integer> lastUpdated, LinkedHashMap<Integer, Integer> updated) {
 
 		BigInteger sumlastUpdated = getSum(lastUpdated);
 		BigInteger sumUpdated = getSum(updated);
@@ -66,8 +65,8 @@ public class MaxSubPostiveArray {
 	}
 
 	// To discard reference issue exchanging map value to 
-	public static Map<Integer, Integer> exchangeValue(Map<Integer, Integer> mavValue) {
-		Map<Integer, Integer> newMap = new HashMap<Integer, Integer>();
+	public static LinkedHashMap<Integer, Integer> exchangeValue(LinkedHashMap<Integer, Integer> mavValue) {
+		LinkedHashMap<Integer, Integer> newMap = new LinkedHashMap<Integer, Integer>();
 
 		for (int key : mavValue.keySet()) {
 			newMap.put(key, mavValue.get(key));
