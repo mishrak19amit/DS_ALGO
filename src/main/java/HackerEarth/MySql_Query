@@ -1,0 +1,15 @@
+1. https://www.interviewbit.com/problems/short-films/
+
+select MO.movie_title, MO.movie_year, CONCAT(DI.director_first_name,DI.director_last_name) as director_name, CONCAT(AC.actor_first_name,AC.actor_last_name) as actor_name, 
+CA.role  from movies as MO Inner join movies_cast as CA on MO.movie_id=CA.movie_id inner join movies_directors as MD on MO.movie_id=MD.movie_id inner join directors as DI
+on DI.director_id=MD.director_id inner join actors as AC on CA.actor_id=AC.actor_id order by MO.movie_time limit 1
+
+
+2. https://www.interviewbit.com/courses/7/topics/35/problems/movie-character/previous_submissions/
+select CONCAT(DI.director_first_name,DI.director_last_name) as director_name, MO.movie_title from movies as MO Inner join movies_cast as CA 
+on MO.movie_id=CA.movie_id inner join movies_directors as MD on MO.movie_id=MD.movie_id inner join directors as DI on DI.director_id=MD.director_id 
+where CA.role='SeanMaguire'
+
+3. https://www.interviewbit.com/courses/7/topics/35/problems/neutral-reviewers/previous_submissions/
+
+select Re.reviewer_name from reviewers as Re Inner join ratings as Ra on Re.reviewer_id=Ra.reviewer_id where Ra.reviewer_stars is NULL;
