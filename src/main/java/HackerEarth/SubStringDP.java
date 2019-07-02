@@ -25,9 +25,11 @@ public class SubStringDP {
 	}
 
 	public static void main(String[] args) {
-		String s = "abc";
+		String s = "kincenvizh";
+		System.out.println("Sub Strings are below: ");
 		int count = getSubStringCount(s);
-		System.out.println(count);
+		System.out.println();
+		System.out.println("Total number of Sub String: " + count);
 		subStringList.clear();
 	}
 
