@@ -11,7 +11,7 @@ public class QueueUsingArray {
 		size = 0;
 	}
 
-	public static void add(int item) {
+	public static void push(int item) {
 		if (size == arr.length) {
 			System.out.println("Queue is full, not able to insert!");
 			return;
@@ -38,13 +38,14 @@ public class QueueUsingArray {
 	public static void main(String[] args) {
 		int capacity = 5;
 		initializeQueue(capacity);
-		add(2);
-		add(3);
-		add(4);
+		push(2);
+		push(3);
+		push(4);
 		System.out.println(pop());
-		add(5);
-		add(6);
-		add(7);
+		push(5);
+		push(6);
+		push(7);
+		push(8);
 		System.out.println(pop());
 		System.out.println(pop());
 		System.out.println(pop());
