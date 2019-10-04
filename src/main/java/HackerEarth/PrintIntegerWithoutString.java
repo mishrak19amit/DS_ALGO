@@ -11,13 +11,11 @@ public class PrintIntegerWithoutString {
 			sum = sum + val;
 			k++;
 		}
-
 		return (int) sum;
 	}
 
 	public static void main(String[] args) {
 		int n = 133;
 		System.out.println(getNumber(n));
-		;
 	}
 }
